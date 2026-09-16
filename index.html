@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
 <title>AstroTech Solutions | Mobile Screen Repair & Tech Support — Gilbert, AZ</title>
 <meta name="description" content="Mobile phone screen repair, data transfer, and home tech support in Gilbert, AZ and the surrounding East Valley. We come to you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +26,12 @@
   }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
+button, input, select, textarea{
+-webkit-appearance: none;
+appearance: none;
+font-family: inherit;
+color-scheme: dark;
+}
 html{ scroll-behavior:smooth; }
 
 body{
@@ -154,7 +161,7 @@ gap: 16px;
 }
 .brand-mark{ display:flex; align-items:center; gap: 10px; min-width: 0; }
 .logo-slot{
-width: 34px; height: 34px;
+width: 48px; height: 48px;
 border-radius: 50%;
 background: var(–card);
 border: 1px solid var(–border);
@@ -290,7 +297,7 @@ color: var(–text-dim);
 }
 .hero-badge b{ color: var(–mint); font-weight: 700; }
 .hero-mascot{
-width: 108px; height: 108px;
+width: 168px; height: 168px;
 margin: 32px auto 0;
 border-radius: 50%;
 background: radial-gradient(circle at 40% 30%, #0d2415, #04060a 75%);
@@ -435,7 +442,7 @@ font-family: ‘Inter’, sans-serif; font-size: 14px;
 }
 input:focus, select:focus, textarea:focus{ outline: none; border-color: var(–green); box-shadow: 0 0 0 3px rgba(57,255,106,0.12); }
 textarea{ resize: vertical; min-height: 90px; }
-form .submit-btn{ grid-column: 1 / -1; border: none; cursor: pointer; margin-top: 6px; justify-content: center; }
+form .submit-btn{ grid-column: 1 / -1; border: none; cursor: pointer; margin-top: 6px; justify-content: center; background: var(–green); color: #04140a; }
 form small{ grid-column: 1 / -1; color: var(–text-dim); font-size: 12px; }
 #formStatus{ font-size: 13.5px; font-weight: 600; min-height: 1px; }
 #formStatus:empty{ display: none; }

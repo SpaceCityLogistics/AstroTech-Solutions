@@ -3,15 +3,18 @@
   const field = document.getElementById('starfield');
   if(!field) return;
 
-  const UFO_SVG = '<svg viewBox="0 0 64 34" xmlns="http://www.w3.org/2000/svg">' +
-    '<ellipse cx="32" cy="23" rx="28" ry="7" fill="#39ff6a"/>' +
-    '<ellipse cx="32" cy="23" rx="28" ry="7" fill="none" stroke="#a8ffb8" stroke-width="1.3" opacity="0.8"/>' +
-    '<ellipse cx="32" cy="13" rx="13" ry="11" fill="#0c1712" stroke="#7dffa3" stroke-width="1.4"/>' +
-    '<ellipse cx="32" cy="11" rx="9.5" ry="7.5" fill="#39ff6a" opacity="0.3"/>' +
-    '<circle cx="14" cy="24" r="1.8" fill="#eafff0"/>' +
-    '<circle cx="24" cy="27.5" r="1.8" fill="#eafff0"/>' +
-    '<circle cx="40" cy="27.5" r="1.8" fill="#eafff0"/>' +
-    '<circle cx="50" cy="24" r="1.8" fill="#eafff0"/>' +
+  const UFO_SVG = '<svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">' +
+    '<ellipse cx="50" cy="34" rx="44" ry="8" fill="#1f8a4c"/>' +
+    '<ellipse cx="50" cy="30.5" rx="40" ry="8" fill="#39ff6a"/>' +
+    '<ellipse cx="50" cy="30.5" rx="40" ry="8" fill="none" stroke="#a8ffb8" stroke-width="1.3" opacity="0.85"/>' +
+    '<ellipse cx="50" cy="25.5" rx="23" ry="6.5" fill="#7dffa3"/>' +
+    '<path d="M36,26 A14,11 0 1 1 64,26 Z" fill="#0a1410" stroke="#7dffa3" stroke-width="1.6"/>' +
+    '<ellipse cx="45" cy="19.5" rx="5" ry="2.6" fill="#a8ffb8" opacity="0.55"/>' +
+    '<circle cx="17" cy="32" r="2.1" fill="#eafff0"/>' +
+    '<circle cx="32" cy="36.5" r="2.1" fill="#eafff0"/>' +
+    '<circle cx="50" cy="38" r="2.1" fill="#eafff0"/>' +
+    '<circle cx="68" cy="36.5" r="2.1" fill="#eafff0"/>' +
+    '<circle cx="83" cy="32" r="2.1" fill="#eafff0"/>' +
     '</svg>';
 
   const starCount = 180;

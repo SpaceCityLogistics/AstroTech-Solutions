@@ -298,8 +298,8 @@
   .hero-copy{ display:flex; flex-direction:column; align-items:center; width:100%; }
   @media (min-width: 860px){
     .hero-grid{
-      display:grid; grid-template-columns: 1.05fr 0.95fr;
-      align-items:center; gap: 56px;
+      display:grid; grid-template-columns: 1fr 1.1fr;
+      align-items:center; gap: 48px;
       text-align: left;
     }
     .hero-visual{ order: 2; margin-bottom: 0; }
@@ -351,7 +351,7 @@
   }
   .hero-badge b{ color: var(--mint); font-weight: 700; }
   .hero-mascot{
-    width: 240px; height: 240px;
+    width: 280px; height: 280px;
     margin: 0 auto;
     position: relative;
     display:flex; align-items:center; justify-content:center;
@@ -365,7 +365,7 @@
   }
   .hero-mascot img{ width:100%; height:100%; object-fit: contain; }
   @media (min-width: 860px){
-    .hero-mascot{ width: 380px; height: 380px; margin: 0; }
+    .hero-mascot{ width: 440px; height: 440px; margin: 0; }
   }
 
   /* ---------- Section headers ---------- */

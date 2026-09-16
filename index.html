@@ -30,7 +30,7 @@ button, input, select, textarea{
 -webkit-appearance: none;
 appearance: none;
 font-family: inherit;
-color-scheme: dark;
+background-color: transparent;
 }
 html{ scroll-behavior:smooth; }
 
@@ -55,9 +55,9 @@ inset: 0;
 z-index: 0;
 overflow: hidden;
 background:
-radial-gradient(ellipse 900px 500px at 15% -5%, rgba(57,255,106,0.10), transparent 60%),
-radial-gradient(ellipse 700px 700px at 90% 15%, rgba(57,255,106,0.07), transparent 55%),
-radial-gradient(ellipse 800px 600px at 50% 100%, rgba(20,60,35,0.15), transparent 60%),
+radial-gradient(ellipse 900px 500px at 15% -5%, rgba(57,255,106,0.16), transparent 60%),
+radial-gradient(ellipse 700px 700px at 90% 15%, rgba(57,255,106,0.12), transparent 55%),
+radial-gradient(ellipse 800px 600px at 50% 100%, rgba(20,60,35,0.22), transparent 60%),
 #04060a;
 }
 #starfield::after{
@@ -215,7 +215,7 @@ font-size: 13.5px;
 display:flex; flex-direction: column; justify-content: center; align-items: center;
 gap: 4px; width: 38px; height: 38px;
 border-radius: 10px;
-background: var(–card);
+background: var(–card) !important;
 border: 1px solid var(–border);
 cursor: pointer;
 flex-shrink: 0;
@@ -297,13 +297,13 @@ color: var(–text-dim);
 }
 .hero-badge b{ color: var(–mint); font-weight: 700; }
 .hero-mascot{
-width: 168px; height: 168px;
-margin: 32px auto 0;
+width: 220px; height: 220px;
+margin: 0 auto 28px;
 border-radius: 50%;
 background: radial-gradient(circle at 40% 30%, #0d2415, #04060a 75%);
 border: 1px solid var(–border);
 display:flex; align-items:center; justify-content:center;
-box-shadow: 0 0 50px rgba(57,255,106,0.12);
+box-shadow: 0 0 60px rgba(57,255,106,0.16);
 overflow: hidden;
 }
 .hero-mascot img{ width:100%; height:100%; object-fit: contain; }
@@ -502,6 +502,9 @@ outline: 2px solid var(–green); outline-offset: 2px;
   <!-- HERO -->
 
   <section class="hero wrap">
+    <div class="hero-mascot">
+      <img src="logo.png" alt="AstroTech Solutions mascot">
+    </div>
     <div class="hero-tag"><span class="pulse"></span> Tech support that's out of this world</div>
     <h1>Cracked screen, confused smart home — <span class="accent">we land at your door and fix it.</span></h1>
     <p class="lede">Screen repairs, data transfers, and tech support for the devices around your home, mobile-only across Gilbert and the surrounding area.</p>
@@ -513,9 +516,6 @@ outline: 2px solid var(–green); outline-offset: 2px;
       <div class="hero-badge"><b>90-day</b>&nbsp;warranty</div>
       <div class="hero-badge"><b>Same-day</b>&nbsp;availability</div>
       <div class="hero-badge"><b>We come</b>&nbsp;to you</div>
-    </div>
-    <div class="hero-mascot">
-      <img src="logo.png" alt="AstroTech Solutions mascot">
     </div>
   </section>
 
@@ -819,19 +819,19 @@ outline: 2px solid var(–green); outline-offset: 2px;
   // Generate starfield
   (function(){
     const field = document.getElementById('starfield');
-    const starCount = 130;
+    const starCount = 180;
     for(let i=0;i<starCount;i++){
       const s = document.createElement('div');
-      const isGreen = Math.random() < 0.12;
-      const isBig = Math.random() < 0.15;
+      const isGreen = Math.random() < 0.15;
+      const isBig = Math.random() < 0.2;
       s.className = 'star' + (isGreen ? ' green' : '') + (isBig ? ' big' : '');
-      const size = isBig ? (Math.random()*1.6 + 2.4) : (Math.random()*1.6 + 1);
+      const size = isBig ? (Math.random()*2 + 2.8) : (Math.random()*2 + 1.4);
       s.style.width = size + 'px';
       s.style.height = size + 'px';
       s.style.top = Math.random()*100 + '%';
       s.style.left = Math.random()*100 + '%';
-      s.style.setProperty('--min-o', (Math.random()*0.2 + 0.15).toFixed(2));
-      s.style.setProperty('--max-o', (Math.random()*0.3 + 0.7).toFixed(2));
+      s.style.setProperty('--min-o', (Math.random()*0.2 + 0.35).toFixed(2));
+      s.style.setProperty('--max-o', (Math.random()*0.2 + 0.8).toFixed(2));
       s.style.animationDuration = (Math.random()*3 + 2) + 's';
       s.style.animationDelay = (Math.random()*4) + 's';
       field.appendChild(s);

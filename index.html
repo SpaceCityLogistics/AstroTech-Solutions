@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Ol' Scoop Co. | Gilbert, Arizona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f2e4c1;
+    --cream-light:#faf1da;
+    --ink:#2a1c12;
+    --mustard:#a9702e;
+    --rust:#4a3220;
+    --grass:#b8976e;
+    --sky:#a9cbe0;
+    --red:#c1392b;
+    --cream-line: rgba(42,28,18,0.12);
+  }
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+background:var(--cream);
+color:var(--ink);
+font-family:'Baloo 2', sans-serif;
+font-weight:600;
+overflow-x:hidden;
+}
+
+.paper-grain{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:999;
+opacity:0.05;
+background-image:radial-gradient(circle, var(--ink) 1px, transparent 1px);
+background-size:3px 3px;
+mix-blend-mode:multiply;
+}
+
+h1,h2,h3{
+font-family:'Bangers', cursive;
+letter-spacing:1px;
+line-height:1;
+margin:0;
+color:var(--ink);
+-webkit-text-stroke:0.6px var(--ink);
+}
+
+a{color:inherit;}
+
+.wrap{
+max-width:1120px;
+margin:0 auto;
+padding:0 24px;
+}
+
+/* ----- Halftone decoration ----- */
+.halftone{
+position:absolute;
+background-image:radial-gradient(var(--ink) 30%, transparent 31%);
+background-size:14px 14px;
+opacity:0.14;
+pointer-events:none;
+}
+
+/* ----- Header ----- */
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:var(--cream);
+border-bottom:4px solid var(--ink);
+}
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 24px;
+max-width:1120px;
+margin:0 auto;
+}
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-family:'Bangers', cursive;
+font-size:1.6rem;
+color:var(--rust);
+text-decoration:none;
+-webkit-text-stroke:1.8px var(--ink);
+}
+.brand svg{width:44px;height:44px;flex-shrink:0;}
+nav.links{display:flex; gap:28px; font-size:1.05rem;}
+nav.links a{text-decoration:none; position:relative;}
+nav.links a:hover{color:var(--rust);}
+.nav-cta{
+background:var(--red);
+color:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:40px;
+padding:9px 22px;
+font-family:'Baloo 2';
+font-weight:800;
+text-decoration:none;
+box-shadow:3px 3px 0 var(--ink);
+transition:transform .15s ease;
+white-space:nowrap;
+}
+.nav-cta:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink);}
+@media (max-width:820px){ nav.links{display:none;} }
+
+/* ----- Hero ----- */
+.hero{
+position:relative;
+padding:70px 24px 90px;
+overflow:hidden;
+background:
+radial-gradient(circle at 85% 15%, rgba(169,203,224,0.45), transparent 45%),
+var(--cream);
+}
+.hero-inner{
+max-width:1120px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+align-items:center;
+gap:20px;
+}
+.badge-swirl{
+display:inline-block;
+background:var(--red);
+color:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:40px;
+padding:6px 18px;
+font-size:0.95rem;
+font-weight:800;
+transform:rotate(-3deg);
+margin-bottom:22px;
+box-shadow:3px 3px 0 var(--ink);
+}
+.hero h1{
+font-size:clamp(3rem, 7vw, 5.2rem);
+color:var(--ink);
+-webkit-text-stroke:2px var(--ink);
+text-shadow:5px 5px 0 var(--mustard), 5px 5px 0 1px var(--ink);
+}
+.hero h1 .pop{color:var(--red); text-shadow:5px 5px 0 var(--cream-light), 5px 5px 0 1px var(--ink);}
+.hero p.sub{
+font-size:1.25rem;
+max-width:480px;
+margin:22px 0 30px;
+font-weight:600;
+}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+.btn-primary{
+background:var(--mustard);
+border:3px solid var(--ink);
+border-radius:40px;
+padding:14px 30px;
+font-family:'Baloo 2';
+font-weight:800;
+font-size:1.1rem;
+text-decoration:none;
+color:var(--ink);
+box-shadow:4px 4px 0 var(--ink);
+transition:transform .15s ease, box-shadow .15s ease;
+display:inline-block;
+}
+.btn-primary:hover{transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--ink);}
+.btn-ghost{
+background:transparent;
+border:3px solid var(--ink);
+border-radius:40px;
+padding:14px 30px;
+font-family:'Baloo 2';
+font-weight:800;
+font-size:1.1rem;
+text-decoration:none;
+color:var(--ink);
+}
+.btn-ghost:hover{background:var(--cream-light);}
+
+.mascot-frame{
+position:relative;
+display:flex;
+justify-content:center;
+}
+.mascot-frame svg{ width:100%; max-width:380px; }
+.pawprint{position:absolute; width:34px; opacity:.7;}
+
+@media (max-width:820px){
+.hero-inner{grid-template-columns:1fr; text-align:center;}
+.hero p.sub{margin-inline:auto;}
+.hero-ctas{justify-content:center;}
+.mascot-frame{order:-1; margin-bottom:10px;}
+}
+
+/* ----- Marquee ----- */
+.marquee{
+background:var(--ink);
+color:var(--cream-light);
+border-top:4px solid var(--ink);
+border-bottom:4px solid var(--ink);
+overflow:hidden;
+white-space:nowrap;
+padding:12px 0;
+}
+.marquee-track{
+display:inline-block;
+animation:scroll-left 22s linear infinite;
+font-family:'Bangers';
+font-size:1.3rem;
+letter-spacing:2px;
+}
+.marquee-track span{margin:0 26px; color:var(--mustard);}
+@keyframes scroll-left{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+/* ----- Section generic ----- */
+section{padding:90px 24px; position:relative; scroll-margin-top:84px;}
+.section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+.section-head .kicker{
+color:var(--rust);
+font-family:'Bangers';
+font-size:1.3rem;
+display:inline-block;
+transform:rotate(-2deg);
+}
+.section-head h2{font-size:clamp(2.2rem,4.5vw,3.2rem); margin-top:6px;}
+.section-head p{font-size:1.1rem; margin-top:14px; font-weight:600;}
+
+/* ----- Problem/solution ----- */
+.problem{background:var(--cream-light); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);}
+.problem-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+max-width:1000px;
+margin:0 auto;
+}
+.problem-card{
+background:var(--cream);
+border:3px solid var(--ink);
+border-radius:18px;
+padding:28px 22px;
+text-align:center;
+box-shadow:5px 5px 0 var(--ink);
+}
+.problem-card svg{width:60px; height:60px; margin-bottom:14px;}
+.problem-card h3{font-family:'Baloo 2'; font-size:1.15rem; font-weight:800; margin-bottom:8px;}
+.problem-card p{font-size:0.98rem; margin:0; line-height:1.5;}
+@media (max-width:780px){ .problem-grid{grid-template-columns:1fr;} }
+
+/* ----- How it works ----- */
+.steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:26px;
+max-width:1080px;
+margin:0 auto;
+counter-reset:step;
+}
+.step{
+position:relative;
+text-align:center;
+padding:20px 14px;
+}
+.step-num{
+width:64px; height:64px;
+border-radius:50%;
+background:var(--mustard);
+border:3px solid var(--ink);
+display:flex; align-items:center; justify-content:center;
+font-family:'Bangers'; font-size:1.7rem;
+margin:0 auto 16px;
+box-shadow:3px 3px 0 var(--ink);
+}
+.step h3{font-family:'Baloo 2'; font-size:1.1rem; margin-bottom:8px;}
+.step p{font-size:0.95rem; line-height:1.5; margin:0;}
+.step-connector{
+position:absolute; top:32px; left:100%;
+width:26px; height:3px; background:var(--ink);
+display:none;
+}
+@media (min-width:900px){ .step-connector{display:block;} .step:last-child .step-connector{display:none;} }
+@media (max-width:900px){ .steps{grid-template-columns:1fr 1fr;} }
+@media (max-width:560px){ .steps{grid-template-columns:1fr;} }
+
+/* ----- Membership pricing ----- */
+.plans{background:var(--ink); color:var(--cream-light); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);}
+.plans .section-head h2, .plans .kicker{color:var(--cream-light);}
+.plans .kicker{color:var(--mustard);}
+.plans .section-head p{color:var(--cream);}
+.plan-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+max-width:1080px;
+margin:0 auto;
+align-items:stretch;
+}
+.plan-card{
+background:var(--cream);
+color:var(--ink);
+border:3px solid var(--cream-line);
+border:3px solid var(--ink);
+border-radius:20px;
+padding:34px 26px;
+display:flex;
+flex-direction:column;
+position:relative;
+}
+.plan-card.featured{
+background:var(--mustard);
+transform:translateY(-14px);
+box-shadow:6px 6px 0 var(--cream-light);
+}
+.ribbon{
+position:absolute; top:-16px; right:20px;
+background:var(--red); color:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:30px;
+padding:5px 16px;
+font-family:'Bangers';
+font-size:.95rem;
+transform:rotate(4deg);
+}
+.plan-card h3{font-family:'Bangers'; font-size:1.8rem; margin-bottom:6px;}
+.plan-freq{font-size:.95rem; font-weight:700; opacity:.75; margin-bottom:18px;}
+.price{font-family:'Bangers'; font-size:2.6rem; margin-bottom:4px;}
+.price span{font-size:1.1rem; font-family:'Baloo 2'; font-weight:700;}
+.plan-card ul{list-style:none; padding:0; margin:18px 0 26px; flex-grow:1;}
+.plan-card li{padding:7px 0; font-size:.98rem; display:flex; gap:10px; align-items:flex-start;}
+.plan-card li svg{width:18px; height:18px; flex-shrink:0; margin-top:3px;}
+.plan-btn{
+text-align:center;
+background:var(--ink);
+color:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:40px;
+padding:12px;
+font-family:'Baloo 2'; font-weight:800;
+text-decoration:none;
+}
+.plan-card.featured .plan-btn{background:var(--rust); border-color:var(--ink);}
+@media (max-width:900px){ .plan-grid{grid-template-columns:1fr; max-width:420px;} .plan-card.featured{transform:none;} }
+
+/* ----- Service area ----- */
+.area{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+max-width:1080px;
+margin:0 auto;
+}
+.area h2{font-size:clamp(2rem,4vw,2.8rem); margin-bottom:16px;}
+.area p{font-size:1.05rem; line-height:1.6; margin-bottom:20px;}
+.chips{display:flex; flex-wrap:wrap; gap:10px;}
+.chip{
+background:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:30px;
+padding:8px 16px;
+font-weight:700;
+font-size:.92rem;
+}
+@media (max-width:820px){ .area{grid-template-columns:1fr;} }
+
+/* ----- Testimonials ----- */
+.testimonials{background:var(--cream-light); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);}
+.testi-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:26px;
+max-width:1080px;
+margin:0 auto;
+}
+.testi-card{
+background:var(--cream);
+border:3px solid var(--ink);
+border-radius:18px;
+padding:26px 22px;
+box-shadow:5px 5px 0 var(--ink);
+}
+.stars{color:var(--rust); font-size:1.1rem; margin-bottom:10px; letter-spacing:2px;}
+.testi-card p.quote{font-size:.98rem; line-height:1.55; margin:0 0 14px;}
+.testi-name{font-family:'Bangers'; font-size:1.1rem; color:var(--ink);}
+@media (max-width:900px){ .testi-grid{grid-template-columns:1fr;} }
+
+/* ----- Final CTA ----- */
+.final-cta{
+text-align:center;
+background:
+radial-gradient(circle at 20% 30%, rgba(184,151,110,0.28), transparent 40%),
+var(--cream);
+}
+.final-cta h2{font-size:clamp(2.4rem,6vw,4rem); margin-bottom:18px;}
+.final-cta p{font-size:1.15rem; max-width:520px; margin:0 auto 30px; font-weight:600;}
+
+/* ----- Contact / Booking ----- */
+.booking-card{
+max-width:760px;
+margin:0 auto;
+background:var(--cream-light);
+border:4px solid var(--ink);
+border-radius:22px;
+padding:40px 36px;
+box-shadow:7px 7px 0 var(--ink);
+}
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px 22px;
+}
+.field{display:flex; flex-direction:column; gap:6px;}
+.field.full{grid-column:1 / -1;}
+.field label{font-weight:800; font-size:.95rem;}
+.field input, .field select, .field textarea{
+font-family:'Baloo 2', sans-serif;
+font-size:1rem;
+font-weight:600;
+padding:11px 14px;
+border:3px solid var(--ink);
+border-radius:12px;
+background:var(--cream);
+color:var(--ink);
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+outline:none;
+border-color:var(--red);
+}
+.field textarea{resize:vertical; min-height:90px; font-family:'Baloo 2', sans-serif;}
+.submit-row{margin-top:26px; text-align:center;}
+.submit-btn{
+background:var(--red);
+color:var(--cream-light);
+border:3px solid var(--ink);
+border-radius:40px;
+padding:15px 40px;
+font-family:'Baloo 2';
+font-weight:800;
+font-size:1.1rem;
+cursor:pointer;
+box-shadow:4px 4px 0 var(--ink);
+transition:transform .15s ease, box-shadow .15s ease;
+}
+.submit-btn:hover{transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--ink);}
+.submit-btn:disabled{opacity:.7; cursor:default; transform:none; box-shadow:4px 4px 0 var(--ink);}
+.form-note{text-align:center; font-size:.9rem; margin-top:14px; opacity:.75;}
+.form-error{color:var(--red); font-weight:800; text-align:center; margin-top:16px;}
+.form-success{
+text-align:center;
+padding:20px;
+}
+.form-success h3{font-family:'Bangers'; font-size:1.8rem; margin-bottom:10px;}
+.form-success p{font-size:1.05rem; font-weight:600; margin:0;}
+@media (max-width:640px){
+.form-grid{grid-template-columns:1fr;}
+.booking-card{padding:30px 22px;}
+}
+
+footer{
+background:var(--ink);
+color:var(--cream);
+padding:40px 24px 26px;
+text-align:center;
+font-size:.92rem;
+}
+footer .brand{color:var(--mustard); -webkit-text-stroke:1px var(--cream-light); justify-content:center; margin-bottom:10px;}
+footer p{margin:4px 0; opacity:.85;}
+</style>
+
+</head>
+<body>
+
+<div class="paper-grain"></div>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">
+      <img src="ED7B5063-A00A-429E-8FD5-F0D0904740F3.png" alt="Good Ol' Scoop Co. logo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+      Good Ol' Scoop Co.
+    </a>
+    <nav class="links">
+      <a href="#services">Memberships</a>
+      <a href="#how">How it works</a>
+      <a href="#area">Service area</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="badge-swirl">Gilbert, Arizona's Cleanup Crew</span>
+      <h1>WE SCOOP<br>THE <span class="pop">POOP</span><br>SO YOU DON'T<br>HAVE TO!</h1>
+      <p class="sub">Weekly and bi-weekly yard cleanups for happy pups and happier owners. No contracts, no stink, just a spotless yard — every single visit.</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn-primary">See Membership Plans</a>
+        <a href="#how" class="btn-ghost">How It Works</a>
+      </div>
+    </div>
+    <div class="mascot-frame">
+      <img src="ED7B5063-A00A-429E-8FD5-F0D0904740F3.png" alt="Good Ol' Scoop Co. mascot logo" style="width:100%;max-width:380px;border-radius:50%;">
+      <div class="halftone" style="width:0;height:0;"></div>
+    </div>
+  </div>
+
+  <div class="halftone" style="width:220px;height:220px;top:20px;left:-60px;"></div>
+  <div class="halftone" style="width:160px;height:160px;bottom:0;right:-40px;"></div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>★ NO CONTRACTS</span><span>★ LOCALLY OWNED</span><span>★ SATISFACTION GUARANTEED</span><span>★ SERVING GILBERT, AZ</span>
+    <span>★ NO CONTRACTS</span><span>★ LOCALLY OWNED</span><span>★ SATISFACTION GUARANTEED</span><span>★ SERVING GILBERT, AZ</span>
+  </div>
+</div>
+
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Dirty Truth</span>
+      <h2>Nobody Actually Likes<br>Doing This.</h2>
+      <p>Between work, the kids, and the Arizona heat, yard duty is the chore that always gets skipped. That's where we come in.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#a9702e" stroke="#2a1c12" stroke-width="3"/><path d="M20 24h24M20 32h24M20 40h16" stroke="#2a1c12" stroke-width="4" stroke-linecap="round"/></svg>
+        <h3>Too Busy to Scoop</h3>
+        <p>Life's full. The last thing you want to spend Saturday morning on is patrolling the lawn.</p>
+      </div>
+      <div class="problem-card">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#c1392b" stroke="#2a1c12" stroke-width="3"/><path d="M32 16v20M32 44h.01" stroke="#faf1da" stroke-width="5" stroke-linecap="round"/></svg>
+        <h3>It Piles Up Fast</h3>
+        <p>One dog makes a mess. Two or three? It's a whole situation by the weekend.</p>
+      </div>
+      <div class="problem-card">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#b8976e" stroke="#2a1c12" stroke-width="3"/><path d="M22 34l7 7 14-16" stroke="#faf1da" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>A Clean Yard = Happy Home</h3>
+        <p>No more surprise step-ins, no more smell before company comes over.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Easy As 1-2-3</span>
+      <h2>How It Works</h2>
+      <p>Getting a scoop-free yard takes about two minutes to set up.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pick a Plan</h3>
+        <p>Choose weekly, bi-weekly, or monthly service based on your yard and your pack.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We Get Scoopin'</h3>
+        <p>Our crew shows up on schedule, gate to gate, rain or shine.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>You Get a Text</h3>
+        <p>A quick heads-up once we've finished, so you always know we came by.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Enjoy the Yard</h3>
+        <p>Barefoot-approved yard, guaranteed. Cancel or change plans anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Membership Plans</span>
+      <h2>Pick Your Scoop Schedule</h2>
+      <p>All plans include gate-to-gate cleanup, waste bagged &amp; hauled away, and a quick deodorizing spray.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>Monthly</h3>
+        <div class="plan-freq">1 visit / month</div>
+        <div class="price">$29<span>/mo</span></div>
+        <ul>
+          <li>✓ Full yard cleanup</li>
+          <li>✓ Waste bagged &amp; removed</li>
+          <li>✓ Great for 1 dog, small yards</li>
+          <li>✓ Cancel anytime</li>
+        </ul>
+        <a href="#" class="plan-btn" onclick="selectPlan('Monthly'); return false;">Choose Monthly</a>
+      </div>
+      <div class="plan-card featured">
+        <span class="ribbon">Most Popular</span>
+        <h3>Bi-Weekly</h3>
+        <div class="plan-freq">2 visits / month</div>
+        <div class="price">$45<span>/mo</span></div>
+        <ul>
+          <li>✓ Everything in Monthly</li>
+          <li>✓ Deodorizing spray included</li>
+          <li>✓ Great for 1-2 dogs</li>
+          <li>✓ Text alert after every visit</li>
+        </ul>
+        <a href="#" class="plan-btn" onclick="selectPlan('Bi-Weekly'); return false;">Choose Bi-Weekly</a>
+      </div>
+      <div class="plan-card">
+        <h3>Weekly</h3>
+        <div class="plan-freq">4 visits / month</div>
+        <div class="price">$65<span>/mo</span></div>
+        <ul>
+          <li>✓ Everything in Bi-Weekly</li>
+          <li>✓ Best for multi-dog households</li>
+          <li>✓ Priority scheduling</li>
+          <li>✓ Free gate lock check</li>
+        </ul>
+        <a href="#" class="plan-btn" onclick="selectPlan('Weekly'); return false;">Choose Weekly</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="area">
+    <div>
+      <span class="kicker">Where We Roam</span>
+      <h2>Proudly Serving Gilbert &amp; Nearby</h2>
+      <p>Our scoopers cover Gilbert, Arizona and the surrounding neighborhoods. Not sure if you're in range? Send us your address and we'll let you know in minutes.</p>
+      <div class="chips">
+        <span class="chip">Gilbert</span>
+        <span class="chip">Chandler</span>
+        <span class="chip">Queen Creek</span>
+        <span class="chip">Mesa</span>
+        <span class="chip">San Tan Valley</span>
+      </div>
+    </div>
+    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="140" fill="#faf1da" stroke="#2a1c12" stroke-width="4" stroke-dasharray="10 8"/>
+      <path d="M150 60 C110 60 90 100 90 135 C90 180 150 240 150 240 C150 240 210 180 210 135 C210 100 190 60 150 60Z" fill="#c1392b" stroke="#2a1c12" stroke-width="5"/>
+      <circle cx="150" cy="132" r="34" fill="#faf1da" stroke="#2a1c12" stroke-width="4"/>
+      <path d="M136 132 l10 10 20-22" stroke="#4a3220" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Happy Yards, Happy People</span>
+      <h2>What The Neighbors Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Our backyard has never been this clean. The text after every visit is such a nice touch — I actually trust it's getting done.</p>
+        <div class="testi-name">Jenna R., Gilbert</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Three dogs, zero problems. Switched to weekly and the yard finally smells normal again. Worth every penny.</p>
+        <div class="testi-name">Marcus T., Gilbert</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Easy sign-up, friendly crew, and they always latch the gate. Cancelled my search for a scooper the day I found these guys.</p>
+        <div class="testi-name">Priya K., Chandler</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="wrap">
+    <h2>Ready For A<br>Poop-Free Yard?</h2>
+    <p>Fill out the form below and we'll reach out within one business day to get you scheduled.</p>
+
+<div class="booking-card">
+  <form id="bookingForm" action="https://formspree.io/f/xvkojddq" method="POST">
+    <input type="hidden" name="_subject" value="New booking request — Good Ol' Scoop Co.">
+    <input type="hidden" name="_next" id="nextRedirect" value="">
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="Name" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="Phone" required>
+      </div>
+      <div class="field full">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+      <div class="field full">
+        <label for="address">Service address</label>
+        <input type="text" id="address" name="Address" placeholder="Street, Gilbert AZ" required>
+      </div>
+      <div class="field">
+        <label for="dogs">Number of dogs</label>
+        <select id="dogs" name="Number of Dogs" required>
+          <option value="">Select one</option>
+          <option>1 dog</option>
+          <option>2 dogs</option>
+          <option>3 dogs</option>
+          <option>4+ dogs</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="planSelect">Plan you're interested in</label>
+        <select id="planSelect" name="Plan">
+          <option>Not sure yet</option>
+          <option>Monthly</option>
+          <option>Bi-Weekly</option>
+          <option>Weekly</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="startDate">Preferred start date</label>
+        <input type="date" id="startDate" name="Preferred Start Date">
+      </div>
+      <div class="field full">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="Notes" placeholder="Gate code, dog names, problem areas..."></textarea>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="submit-btn" id="submitBtn">Send My Request</button>
+      <p class="form-note">No spam, no contracts — just a real reply from a real person.</p>
+    </div>
+  </form>
+  <div id="formStatus"></div>
+</div>
+
+  </div>
+</section>
+
+<script>
+  function selectPlan(planName){
+    var select = document.getElementById('planSelect');
+    if(select){ select.value = planName; }
+    var target = document.getElementById('contact');
+    if(target){ target.scrollIntoView({behavior:'smooth'}); }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if(href.length > 1){
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if(target){ target.scrollIntoView({behavior:'smooth'}); }
+      }
+    });
+  });
+
+  // Set the redirect target dynamically so Formspree sends the visitor back to
+  // this same page with a "?sent=1" flag after a normal, reliable form POST.
+  var nextField = document.getElementById('nextRedirect');
+  if(nextField){
+    nextField.value = window.location.href.split('?')[0].split('#')[0] + '?sent=1#contact';
+  }
+
+  // If we just got redirected back after a successful submission, show the
+  // success message and hide the form.
+  if(window.location.search.indexOf('sent=1') !== -1){
+    var form = document.getElementById('bookingForm');
+    var status = document.getElementById('formStatus');
+    if(form){ form.style.display = 'none'; }
+    if(status){
+      status.innerHTML = '<div class="form-success"><h3>You\'re on the list!</h3><p>Thanks for reaching out — we\'ll text or call within one business day to get your yard on the schedule.</p></div>';
+    }
+    var contactSection = document.getElementById('contact');
+    if(contactSection){
+      window.addEventListener('load', function(){
+        contactSection.scrollIntoView({behavior:'smooth'});
+      });
+    }
+  }
+</script>
+
+<footer>
+  <a href="#" class="brand">
+    <img src="ED7B5063-A00A-429E-8FD5-F0D0904740F3.png" alt="Good Ol' Scoop Co. logo" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+    Good Ol' Scoop Co.
+  </a>
+  <p>Gilbert, Arizona &middot; (480) 930-5278 &middot; goodolscoopco@gmail.com</p>
+  <p>&copy; 2026 Good Ol' Scoop Co. All rights reserved. No contracts, just clean yards.</p>
+</footer>
+
+</body>
+</html>

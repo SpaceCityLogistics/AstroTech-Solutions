@@ -2,6 +2,18 @@
 (function(){
   const field = document.getElementById('starfield');
   if(!field) return;
+
+  const UFO_SVG = '<svg viewBox="0 0 64 34" xmlns="http://www.w3.org/2000/svg">' +
+    '<ellipse cx="32" cy="23" rx="28" ry="7" fill="#39ff6a"/>' +
+    '<ellipse cx="32" cy="23" rx="28" ry="7" fill="none" stroke="#a8ffb8" stroke-width="1.3" opacity="0.8"/>' +
+    '<ellipse cx="32" cy="13" rx="13" ry="11" fill="#0c1712" stroke="#7dffa3" stroke-width="1.4"/>' +
+    '<ellipse cx="32" cy="11" rx="9.5" ry="7.5" fill="#39ff6a" opacity="0.3"/>' +
+    '<circle cx="14" cy="24" r="1.8" fill="#eafff0"/>' +
+    '<circle cx="24" cy="27.5" r="1.8" fill="#eafff0"/>' +
+    '<circle cx="40" cy="27.5" r="1.8" fill="#eafff0"/>' +
+    '<circle cx="50" cy="24" r="1.8" fill="#eafff0"/>' +
+    '</svg>';
+
   const starCount = 180;
   for(let i=0;i<starCount;i++){
     const s = document.createElement('div');
@@ -48,6 +60,27 @@
     m.style.animationDuration = (1.6 + Math.random()*1.8) + 's';
     m.style.animationDelay = (Math.random()*7) + 's';
     field.appendChild(m);
+  }
+
+  const ufoPaths = ['path-1', 'path-2', 'path-3'];
+  const ufoCount = 4;
+  for(let i=0;i<ufoCount;i++){
+    const wrap = document.createElement('div');
+    const sizeRoll = Math.random();
+    wrap.className = 'ufo ' + ufoPaths[i % ufoPaths.length] + (sizeRoll < 0.3 ? ' small' : sizeRoll > 0.75 ? ' big' : '');
+    wrap.style.top = (Math.random()*50 - 5) + '%';
+    wrap.style.left = (Math.random()*50 - 5) + '%';
+    wrap.style.animationDuration = (16 + Math.random()*10) + 's';
+    wrap.style.animationDelay = (Math.random()*14) + 's';
+
+    const inner = document.createElement('div');
+    inner.className = 'ufo-inner';
+    inner.style.animationDuration = (2 + Math.random()*1.4) + 's';
+    inner.style.animationDelay = (Math.random()*2) + 's';
+    inner.innerHTML = UFO_SVG;
+
+    wrap.appendChild(inner);
+    field.appendChild(wrap);
   }
 })();
 

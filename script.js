@@ -39,18 +39,14 @@
   moon.className = 'moon';
   moon.style.width = '110px'; moon.style.height = '110px';
   moon.style.top = '6%'; moon.style.left = '84%';
+  moon.appendChild(document.createElement('div')).className = 'moon-ring';
   field.appendChild(moon);
-
-  const ring = document.createElement('div');
-  ring.className = 'planet-ring';
-  ring.style.width = '170px'; ring.style.height = '50px';
-  ring.style.top = '4%'; ring.style.left = '78%';
-  field.appendChild(ring);
 
   const smallMoon = document.createElement('div');
   smallMoon.className = 'moon';
   smallMoon.style.width = '46px'; smallMoon.style.height = '46px';
   smallMoon.style.top = '58%'; smallMoon.style.left = '4%';
+  smallMoon.appendChild(document.createElement('div')).className = 'moon-ring';
   field.appendChild(smallMoon);
 
   const meteorCount = 9;

@@ -72,15 +72,18 @@
   .moon{
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle at 32% 28%, #d4ded8, #6d7d75 72%);
-    box-shadow: 0 0 40px rgba(180,220,190,0.15);
-    opacity: 0.5;
+    background: radial-gradient(circle at 32% 28%, #c3ffd6, #1b5c34 75%);
+    box-shadow: 0 0 40px rgba(57,255,106,0.18);
+    opacity: 0.6;
   }
-  .planet-ring{
+  .moon-ring{
     position: absolute;
-    border: 2px solid rgba(57,255,106,0.2);
+    top: 50%; left: 50%;
+    width: 195%; height: 56%;
+    border: 2px solid rgba(168,255,184,0.65);
     border-radius: 50%;
-    transform: rotate(-20deg);
+    box-shadow: 0 0 10px rgba(57,255,106,0.35);
+    transform: translate(-50%,-50%) rotate(-18deg);
   }
   .meteor{
     position: absolute;

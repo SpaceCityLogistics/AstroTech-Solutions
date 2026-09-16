@@ -71,7 +71,7 @@
     wrap.style.top = (Math.random()*50 - 5) + '%';
     wrap.style.left = (Math.random()*50 - 5) + '%';
     wrap.style.animationDuration = (16 + Math.random()*10) + 's';
-    wrap.style.animationDelay = (Math.random()*14) + 's';
+    wrap.style.animationDelay = (i * 1.5 + Math.random()*2) + 's';
 
     const inner = document.createElement('div');
     inner.className = 'ufo-inner';

@@ -301,12 +301,14 @@
   }
   .nav-panel.open{ transform: translateX(0); }
   .nav-panel a{
+    display: flex; align-items: center; gap: 10px;
     font-size: 16px; font-weight: 600; color: var(--text);
     padding: 14px 4px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-panel a:hover{ color: var(--green); }
-  .nav-panel .panel-call{ margin-top: 20px; text-align: center; color: var(--green); font-weight: 700; font-size: 15px; }
+  .navIcon{ width: 17px; height: 17px; flex-shrink: 0; }
+  .nav-panel .panel-call{ margin-top: 20px; justify-content: center; color: var(--green); font-weight: 700; font-size: 15px; }
   .nav-overlay{
     position: fixed; inset: 0; background: rgba(0,0,0,0.55);
     z-index: 55; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;

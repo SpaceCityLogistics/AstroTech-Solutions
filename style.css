@@ -341,6 +341,19 @@
   .nav-overlay.open{ opacity: 1; pointer-events: auto; }
 
   /* ---------- Hero ---------- */
+  .logo-banner{ display:flex; justify-content:center; padding-top: 36px; }
+  .logo-banner-img{
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 50px rgba(57, 255, 106, 0.18);
+  }
+  @media (min-width: 640px){
+    .logo-banner-img{ max-width: 560px; }
+  }
+
   .hero{ padding: 60px 0 56px; text-align: center; }
   .hero-grid{
     display:flex; flex-direction: column; align-items:center;

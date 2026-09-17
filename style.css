@@ -350,12 +350,12 @@
   .hero-logo-img{ width:100%; max-width: 540px; height:auto; }
   @media (min-width: 860px){
     .hero-grid{
-      display:grid; grid-template-columns: 1fr 1.2fr;
+      display:grid; grid-template-columns: 1.2fr 1fr;
       align-items:center; gap: 40px;
       text-align: left;
     }
-    .hero-visual{ order: 2; margin-bottom: 0; justify-content:flex-end; }
-    .hero-copy{ order: 1; align-items:flex-start; }
+    .hero-visual{ order: 1; margin-bottom: 0; justify-content:flex-start; }
+    .hero-copy{ order: 2; align-items:flex-start; }
     .hero-copy h1, .hero-copy p.lede{ margin-left:0; margin-right:0; }
     .hero-copy .hero-actions{ justify-content:flex-start; }
     .hero-copy .hero-badges{ justify-content:flex-start; }

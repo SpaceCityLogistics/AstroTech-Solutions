@@ -417,7 +417,7 @@
     width:100%; margin-top: 4px;
   }
   .hero-feature{
-    display:flex; align-items:center; gap:14px;
+    display:flex; align-items:center; gap:10px;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);

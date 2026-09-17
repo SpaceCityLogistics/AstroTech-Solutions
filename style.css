@@ -342,27 +342,29 @@
 
   /* ---------- Hero ---------- */
   .hero{ padding: 60px 0 56px; text-align: center; }
-  .hero-grid{
-    display:flex; flex-direction: column; align-items:center;
+  .hero-top{
+    display:flex; flex-direction: column; align-items:center; gap: 20px;
   }
-  .hero-visual{ order: -1; margin-bottom: 28px; width:100%; display:flex; justify-content:center; }
-  .hero-copy{ display:flex; flex-direction:column; align-items:center; width:100%; }
-  .hero-logo-img{ width:100%; max-width: 540px; height:auto; }
+  .hero-visual{ display:flex; justify-content:center; width:100%; }
+  .hero-headline{ display:flex; flex-direction:column; align-items:center; width:100%; }
+  .hero-logo-img{ width:100%; max-width: 320px; height:auto; }
+  .hero-bottom{ margin-top: 32px; display:flex; flex-direction:column; align-items:center; }
   @media (min-width: 860px){
-    .hero-grid{
-      display:grid; grid-template-columns: 1.2fr 1fr;
-      align-items:center; gap: 40px;
-      text-align: left;
+    .hero-top{
+      flex-direction: row; align-items:center; justify-content:center;
+      gap: 36px; text-align: left;
     }
-    .hero-visual{ order: 1; margin-bottom: 0; justify-content:flex-start; }
-    .hero-copy{ order: 2; align-items:flex-start; }
-    .hero-copy h1, .hero-copy p.lede{ margin-left:0; margin-right:0; }
-    .hero-copy .hero-actions{ justify-content:flex-start; }
-    .hero-copy .hero-badges{ justify-content:flex-start; }
-    .hero-logo-img{ max-width: 660px; }
+    .hero-visual{ flex: 1.1; justify-content:flex-end; }
+    .hero-headline{ flex: 1; align-items:flex-start; }
+    .hero-headline h1{ margin-left:0; margin-right:0; }
+    .hero-logo-img{ max-width: 380px; }
+    .hero-bottom{ align-items:flex-start; }
+    .hero-bottom .lede{ margin-left:0; margin-right:0; }
+    .hero-bottom .hero-actions{ justify-content:flex-start; }
+    .hero-bottom .hero-badges{ justify-content:flex-start; }
   }
   @media (min-width: 1200px){
-    .hero-logo-img{ max-width: 780px; }
+    .hero-logo-img{ max-width: 440px; }
   }
   .hero-tag{
     display:inline-flex;
